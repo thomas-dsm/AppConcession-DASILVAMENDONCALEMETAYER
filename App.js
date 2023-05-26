@@ -1,8 +1,8 @@
 // import { StatusBar } from 'expo-status-bar';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
-import HomeScreen from './screens/HomeSreen';
 import Navigation from "./navigation/Navigation";
+import HomeScreen from "./screens/HomeScreen";
 
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
         <SafeAreaView style={styles.mainSafeArea}>
         <Navigation>
             <HomeScreen/>
-</Navigation>
+        </Navigation>
         </SafeAreaView>
       </>
   );

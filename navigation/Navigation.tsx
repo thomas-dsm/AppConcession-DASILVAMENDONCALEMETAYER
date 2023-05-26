@@ -1,5 +1,5 @@
 import {NavigationContainer} from "@react-navigation/native";
-import HomeScreen from "../screens/HomeSreen";
+import HomeScreen from "../screens/HomeScreen";
 import AccountScreen from "../screens/AccountScreen";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
