@@ -10,7 +10,9 @@ export default function App() {
       <>
         <SafeAreaView style={styles.topSafeArea}/>
         <SafeAreaView style={styles.mainSafeArea}>
-          
+        <Navigation>
+            <HomeScreen/>
+</Navigation>
         </SafeAreaView>
       </>
   );
@@ -19,10 +21,10 @@ export default function App() {
 const styles = StyleSheet.create({
   mainSafeArea: {
     flex: 1,
-    backgroundColor: "#7a96e9"
+    //backgroundColor: "#7a96e9"
   },
   topSafeArea: {
     flex: 0,
-    backgroundColor: 'darksalmon'
+    //backgroundColor: 'darksalmon'
   }
 });

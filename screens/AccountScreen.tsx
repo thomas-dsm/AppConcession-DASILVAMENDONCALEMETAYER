@@ -12,9 +12,8 @@ export default function AcountScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop : 50,
         flex: 1,
-        backgroundColor: "red",
+        backgroundColor: "grey",
     },
     centered: {
         alignItems: "center"

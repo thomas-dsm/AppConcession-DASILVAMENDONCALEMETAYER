@@ -12,7 +12,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop : 50,
         flex: 1,
         backgroundColor: "grey",
     },
