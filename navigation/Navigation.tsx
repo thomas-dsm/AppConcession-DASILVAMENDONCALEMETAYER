@@ -17,7 +17,7 @@ export default function Navigation() {
                     component={HomeScreen}
                     options={{
                         title: 'Home',
-                        //tabBarIcon: () => <FontAwesomeIcon icon={faHome} />,
+                        tabBarIcon: () => <FontAwesomeIcon icon={faHome} />,
                     }}
                 />
                 <BottomTabNavigator.Screen
@@ -25,11 +25,10 @@ export default function Navigation() {
                     component={AccountScreen}
                     options={{
                         title: 'Account',
-                        //tabBarIcon: () => <FontAwesomeIcon icon={faUser} />,
+                        tabBarIcon: () => <FontAwesomeIcon icon={faUser} />,
                     }}
                 />
             </BottomTabNavigator.Navigator>
         </NavigationContainer>
-
-)
+    )
 }

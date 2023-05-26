@@ -1,6 +1,7 @@
-import {StyleSheet, Text, View, FlatList, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, FlatList, Image, Button, Touchable, TouchableOpacity} from 'react-native';
 import VoitureListItem from "../components/VoitureListItem";
 import {Voiture} from "../Entity/Voiture";
+import React from "react";
 
 export const VOITURES_LIST : Voiture[] = [
     new Voiture("AA-000-AA", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
@@ -17,12 +18,14 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.flex_container}>
-                <button title={"Consulter les voitures"} style={styles.icon}>
-                    <img style={styles.teaserImage} src= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
-                </button>
-                <button title={"Consulter les marques"} style={styles.icon}>
-                    <img style={styles.teaserImage} src= {require("../assets/images/default-brand.png")}  alt={"brand-icon"}/>
-                </button>
+                <TouchableOpacity style={styles.icon}>
+                    <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
+                    <Text>Consulter les voitures</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.icon}>
+                    <Image style={styles.teaserImage} source= {require("../assets/images/default-brand.png")}  alt={"brand-icon"}/>
+                    <Text>Consulter les marques</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )
