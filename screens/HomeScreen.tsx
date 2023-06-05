@@ -1,15 +1,11 @@
 import {StyleSheet, Text, View, FlatList, Image, Button, Touchable, TouchableOpacity} from 'react-native';
-import VoitureListItem from "../components/VoitureListItem";
-import {Voiture} from "../Entity/Voiture";
 import React from "react";
-
-export const VOITURES_LIST : Voiture[] = [
-    new Voiture("AA-000-AA", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-    new Voiture("BB-000-BB", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-    new Voiture("CC-000-CC", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-]
+import {useNavigation} from "@react-navigation/native";
+import ListMarquesScreen from "./ListMarquesScreen";
 
 export default function HomeScreen() {
+
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -18,11 +14,17 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.flex_container}>
-                <TouchableOpacity style={styles.icon}>
+                <TouchableOpacity
+                    style={styles.icon}
+                    onPress={() => navigation.navigate('ListVoituresScreen')}
+                >
                     <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
                     <Text>Consulter les voitures</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.icon}>
+                <TouchableOpacity
+                    style={styles.icon}
+                    onPress={() => navigation.navigate('ListMarquesScreen')}
+                >
                     <Image style={styles.teaserImage} source= {require("../assets/images/default-brand.png")}  alt={"brand-icon"}/>
                     <Text>Consulter les marques</Text>
                 </TouchableOpacity>
@@ -34,7 +36,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "darksalmon",
+        backgroundColor: "grey",
     },
     centered: {
         alignItems: "center"

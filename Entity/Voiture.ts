@@ -12,5 +12,21 @@ export class Voiture {
         this.couleur = couleur;
         this.image = image;
     }
+
+    // getImmat(): string {
+    //     return this.immat;
+    // }
+    //
+    // getDateImmat(): string {
+    //     return this.dateImmat;
+    // }
+    //
+    // getCouleur(): string {
+    //     return this.couleur;
+    // }
+    //
+    // getImage(): Image {
+    //     return this.image;
+    // }
 }
 

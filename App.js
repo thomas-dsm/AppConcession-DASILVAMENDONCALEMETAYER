@@ -3,6 +3,7 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 import Navigation from "./navigation/Navigation";
 import HomeScreen from "./screens/HomeScreen";
+import StackNavigation from "./navigation/StackNaviguation";
 
 
 export default function App() {
@@ -10,9 +11,7 @@ export default function App() {
       <>
         <SafeAreaView style={styles.topSafeArea}/>
         <SafeAreaView style={styles.mainSafeArea}>
-        <Navigation>
-            <HomeScreen/>
-        </Navigation>
+            <Navigation/>
         </SafeAreaView>
       </>
   );

@@ -5,19 +5,36 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import {createStackNavigator} from "@react-navigation/stack";
+import StackNavigation from "./StackNaviguation";
+import {StyleSheet} from "react-native";
 
+const BottomTabNavigator = createBottomTabNavigator();
 export default function Navigation() {
-    const BottomTabNavigator = createBottomTabNavigator();
     return (
 
         <NavigationContainer>
-            <BottomTabNavigator.Navigator initialRouteName="Home">
+            <BottomTabNavigator.Navigator initialRouteName="Home"
+                                          // tabBarOptions={{
+                                          //     showLabel : false,
+                                          //     style: {
+                                          //         position: 'absolute' ,
+                                          //         bottom: 25,
+                                          //         left: 20,
+                                          //         right : 20,
+                                          //         elevation: 0,
+                                          //         backgroundC010r: '#ffffff' ,
+                                          //         borderRadius: 15,
+                                          //         height: 90,
+                                          //     }
+                                          // }}
+            >
                 <BottomTabNavigator.Screen
                     name="Home"
-                    component={HomeScreen}
+                    component={StackNavigation}
                     options={{
-                        title: 'Home',
                         tabBarIcon: () => <FontAwesomeIcon icon={faHome} />,
+                        headerShown: false,
                     }}
                 />
                 <BottomTabNavigator.Screen
@@ -32,3 +49,18 @@ export default function Navigation() {
         </NavigationContainer>
     )
 }
+
+const styles = StyleSheet.create({
+    // TabBar: {
+        TabBarOptions: {
+            position: 'absolute',
+            bottom: 25,
+            left: 20,
+            right: 20,
+            elevation: 0,
+            backgroundC010r: '#ffffff',
+            borderRadius: 15,
+            height: 90,
+        }
+    // }
+});

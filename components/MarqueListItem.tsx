@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
-import {Nounours} from "../data/Nounours";
+import { StyleSheet, Text, View, Image } from 'react-native';
+import {Marque} from "../Entity/Marque";
 
-type NounoursListItemProps = {
-    item: Nounours;
+type MarqueListItemProps = {
+    item: Marque;
 }
 
-export default function NounoursListItem(props: NounoursListItemProps) {
+export default function MarqueListItem(props: MarqueListItemProps) {
     return (
         <View>
             <View style={styles.container}>
                 <View style={{width: "80%"}}>
-                    <Text>Name : {props.item.name}</Text>
-                    <Text>{props.item.nbPoils} poils</Text>
-                    <Text>{props.item.age} ans</Text>
+                    <Text>Name : {props.item.nom}</Text>
+                    <Text>{props.item.annee_creation}</Text>
+                    <Text>{props.item.pays}</Text>
                 </View>
                 <View>
                     <Image style={styles.teaserImage} source={props.item.image}/>
