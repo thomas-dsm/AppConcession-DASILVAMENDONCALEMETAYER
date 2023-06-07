@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import {Marque} from "../Entity/Marque";
+import {Marque} from "../entity/Marque";
 
 type MarqueListItemProps = {
     item: Marque;

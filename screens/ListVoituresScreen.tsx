@@ -1,19 +1,14 @@
-import {Voiture} from "../Entity/Voiture";
+import {Voiture} from "../entity/Voiture";
 import {FlatList, TouchableOpacity} from "react-native";
 import VoitureListItem from "../components/VoitureListItem";
 import React from "react";
 import {useNavigation} from "@react-navigation/native";
-
-export const VOITURES_LIST : Voiture[] = [
-    new Voiture("AA-000-AA", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-    new Voiture("BB-000-BB", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-    new Voiture("CC-000-CC", "12-05-2000", "FFFFFF", require("../assets/images/default-car.png")),
-]
+import {createVoituresList} from "../data/stub";
 
 export default function ListVoituresScreen() {
 
     const navigation = useNavigation();
-
+    const VOITURES_LIST = createVoituresList();
     return (
         <FlatList
             data={VOITURES_LIST}

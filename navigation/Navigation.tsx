@@ -1,39 +1,23 @@
 import {NavigationContainer} from "@react-navigation/native";
-import HomeScreen from "../screens/HomeScreen";
 import AccountScreen from "../screens/AccountScreen";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
-import {createStackNavigator} from "@react-navigation/stack";
+import { FontAwesome } from '@expo/vector-icons';
 import StackNavigation from "./StackNaviguation";
 import {StyleSheet} from "react-native";
+import React from "react";
 
 const BottomTabNavigator = createBottomTabNavigator();
 export default function Navigation() {
     return (
 
         <NavigationContainer>
-            <BottomTabNavigator.Navigator initialRouteName="Home"
-                                          // tabBarOptions={{
-                                          //     showLabel : false,
-                                          //     style: {
-                                          //         position: 'absolute' ,
-                                          //         bottom: 25,
-                                          //         left: 20,
-                                          //         right : 20,
-                                          //         elevation: 0,
-                                          //         backgroundC010r: '#ffffff' ,
-                                          //         borderRadius: 15,
-                                          //         height: 90,
-                                          //     }
-                                          // }}
-            >
+            <BottomTabNavigator.Navigator initialRouteName="Home">
                 <BottomTabNavigator.Screen
                     name="Home"
                     component={StackNavigation}
                     options={{
-                        tabBarIcon: () => <FontAwesomeIcon icon={faHome} />,
+                        tabBarIcon: () => <FontAwesome name="home" size={24} color="black" />,
                         headerShown: false,
                     }}
                 />
@@ -42,7 +26,7 @@ export default function Navigation() {
                     component={AccountScreen}
                     options={{
                         title: 'Account',
-                        tabBarIcon: () => <FontAwesomeIcon icon={faUser} />,
+                        tabBarIcon: () => <FontAwesome name="user" size={24} color="black" />,
                     }}
                 />
             </BottomTabNavigator.Navigator>
@@ -51,16 +35,14 @@ export default function Navigation() {
 }
 
 const styles = StyleSheet.create({
-    // TabBar: {
-        TabBarOptions: {
-            position: 'absolute',
-            bottom: 25,
-            left: 20,
-            right: 20,
-            elevation: 0,
-            backgroundC010r: '#ffffff',
-            borderRadius: 15,
-            height: 90,
-        }
-    // }
+    TabBarOptions: {
+        position: 'absolute',
+        bottom: 25,
+        left: 20,
+        right: 20,
+        elevation: 0,
+        backgroundC010r: '#ffffff',
+        borderRadius: 15,
+        height: 90,
+    }
 });

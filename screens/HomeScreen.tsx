@@ -1,7 +1,6 @@
-import {StyleSheet, Text, View, FlatList, Image, Button, Touchable, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from "react";
 import {useNavigation} from "@react-navigation/native";
-import ListMarquesScreen from "./ListMarquesScreen";
 
 export default function HomeScreen() {
 
@@ -19,14 +18,14 @@ export default function HomeScreen() {
                     onPress={() => navigation.navigate('ListVoituresScreen')}
                 >
                     <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
-                    <Text>Consulter les voitures</Text>
+                    <Text>VOITURES</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.icon}
                     onPress={() => navigation.navigate('ListMarquesScreen')}
                 >
                     <Image style={styles.teaserImage} source= {require("../assets/images/default-brand.png")}  alt={"brand-icon"}/>
-                    <Text>Consulter les marques</Text>
+                    <Text>MARQUES</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -37,12 +36,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "grey",
+        alignItems: "center",
     },
     centered: {
         alignItems: "center"
     },
     title: {
-        fontSize: 20
+        fontSize: 20,
+        margin: 20,
     },
     teaserImage: {
         width: 50,
@@ -51,10 +52,12 @@ const styles = StyleSheet.create({
     icon: {
         width: 100,
         height: 100,
+        alignItems: "center",
     },
     flex_container: {
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "center"
+        flexDirection: "column",
+        textAlign: "center",
+        margin:20,
     }
 });

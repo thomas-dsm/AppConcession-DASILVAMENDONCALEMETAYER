@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import {Voiture} from "../Entity/Voiture";
+import {Voiture} from "../entity/Voiture";
 
 type VoitureListItemProps = {
     item: Voiture;

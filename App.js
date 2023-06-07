@@ -1,29 +1,31 @@
-// import { StatusBar } from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-
+import {SafeAreaView, StyleSheet} from 'react-native';
+import store from "./redux/store";
 import Navigation from "./navigation/Navigation";
-import HomeScreen from "./screens/HomeScreen";
-import StackNavigation from "./navigation/StackNaviguation";
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider} from '@ui-kitten/components';
+import {Provider} from "react-redux";
 
 
 export default function App() {
   return (
-      <>
-        <SafeAreaView style={styles.topSafeArea}/>
-        <SafeAreaView style={styles.mainSafeArea}>
-            <Navigation/>
-        </SafeAreaView>
-      </>
+    <>
+        <Provider store={store}>
+            <ApplicationProvider {...eva} theme={eva.light}>
+                <SafeAreaView style={styles.topSafeArea}/>
+                <SafeAreaView style={styles.mainSafeArea}>
+                    <Navigation/>
+                </SafeAreaView>
+            </ApplicationProvider>
+        </Provider>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   mainSafeArea: {
     flex: 1,
-    //backgroundColor: "#7a96e9"
   },
   topSafeArea: {
     flex: 0,
-    //backgroundColor: 'darksalmon'
   }
 });
