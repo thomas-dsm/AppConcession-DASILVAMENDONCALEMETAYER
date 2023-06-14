@@ -1,22 +1,36 @@
-// const initialState = {
-//     voitures: [],
-//     favoritefavorites: [],
-// }
-//
-// let appReducer;
-// export default appReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//         case ADD_FAVORITE_NOUNOURS:
-//             // @ts-ignore
-//             state.favoriteNounours.push(action.nounours)
-//             return {...state};
-//         case FETCH_NOUNOURS:
-//             // @ts-ignore
-//             return {...state, nounours: action.payload};
-//         case DELETE_NOUNOURS:
-//             // @ts-ignore
-//             return {...state, nounours: [...state.nounours.filter((item) => item.name != action.payload.name)]}
-//         default:
-//             return state;
-//     }
-// }
+import {createMarquesList} from "../../data/stub";
+
+const initialState = {
+    voitures: [],
+    favoriteCars: [],
+    marques: createMarquesList(),
+}
+
+const appReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'ADD_FAVORITE_CAR':
+            return {
+                ...state,
+                favoriteCars: [...state.favoriteCars, action.car]
+            };
+        case 'UPDATE_MARQUE':
+            console.log(action.payload);
+            console.log(state.marques);
+            const updatedMarques = state.marques.map((marque) =>
+                marque.nom === action.payload.nom ? action.payload : marque
+            );
+            return {
+                ...state,
+                marques: updatedMarques,
+            };
+        case 'DELETE_MARQUE':
+            return {
+                ...state,
+                marques: state.marques.filter((marque) => marque.id !== action.payload),
+            };
+        default:
+            return state;
+    }
+}
+
+export default appReducer;

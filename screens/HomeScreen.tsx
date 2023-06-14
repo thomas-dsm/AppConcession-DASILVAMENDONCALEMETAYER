@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from "react";
-import {useNavigation} from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function HomeScreen() {
-
     const navigation = useNavigation();
 
     return (
@@ -17,14 +17,14 @@ export default function HomeScreen() {
                     style={styles.icon}
                     onPress={() => navigation.navigate('ListVoituresScreen')}
                 >
-                    <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
+                    <Image style={styles.teaserImage} source={require("../assets/images/default-car.png")} alt={"car-icon"} />
                     <Text>VOITURES</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.icon}
                     onPress={() => navigation.navigate('ListMarquesScreen')}
                 >
-                    <Image style={styles.teaserImage} source= {require("../assets/images/default-brand.png")}  alt={"brand-icon"}/>
+                    <Image style={styles.teaserImage} source={require("../assets/images/default-brand.png")} alt={"brand-icon"} />
                     <Text>MARQUES</Text>
                 </TouchableOpacity>
             </View>
@@ -42,22 +42,26 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     title: {
-        fontSize: 20,
+        fontSize: 30,
         margin: 20,
+        fontFamily: "Arial",
     },
     teaserImage: {
         width: 50,
         height: 50,
     },
     icon: {
-        width: 100,
-        height: 100,
+        flex: 1,
         alignItems: "center",
+        justifyContent: "center",
+        margin: 20,
     },
     flex_container: {
         display: "flex",
-        flexDirection: "column",
-        textAlign: "center",
-        margin:20,
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        width: "100%",
+        marginVertical: 20,
     }
 });

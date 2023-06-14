@@ -1,59 +1,55 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import React from "react";
-import {Card} from '@ui-kitten/components';
+import SlidingUpCard from 'react-native-slidingcard'
+import {addFavorite} from "../redux/actions/addFavorite";
+const width = num => Dimensions.get('window').width * (num / 100)
+const height = num => Dimensions.get('window').height * (num / 100)
 
-const Col = ({ numRows, children }) => {
-    return  (
-        <View style={styles[`${numRows}col`]}>{children}</View>
-    )
-}
-
-const Row = ({ children }) => (
-    <View style={styles.row}>{children}</View>
-)
+const imgSample1 = require('../assets/images/voiture-deujna-dobby-gp-explorer.png')
+const imgSample2 = require('../assets/images/voiture-kaatsup-lebouseuh-gp-explorer.png')
+const imgSample3 = require('../assets/images/voiture-manon-djilsi-gp-explorer.png')
+const imgSample4 = require('../assets/images/voiture-squezzie-gotaga-gp-explorer.png')
+const dataSample = [{ key: 0, image: imgSample1 }, { key: 1, image: imgSample2 },
+    { key: 2, image: imgSample3 }, { key: 3, image: imgSample4 }]
 export default function AcountScreen() {
+
+    const _onPressSample = () => {
+        alert('Ajoutée aux favoris');
+
+        const image = dataSample[0].image;
+        addFavorite(image);
+        console.log(image);
+    };
+
     return (
-        <View style={styles.app}>
-            <Row>
-                <Col numRows={3}>
-                    <Card>
-                        <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
-                        <Text>Voiture 1</Text>
-                    </Card>
-                </Col>
-                <Col numRows={3}>
-                    <Text>Second column</Text>
-                    <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
-                </Col>
-                <Col numRows={3}>
-                    <Text>Third column</Text>
-                    <Image style={styles.teaserImage} source= {require("../assets/images/default-car.png")}  alt={"car-icon"}/>
-                </Col>
-            </Row>
+
+        <View style={styles.container}>
+            <Text style={styles.text}>Mes voitures  :</Text>
+            <SlidingUpCard
+                onPress={_onPressSample}
+                styleCard={styles.imgCardSize}
+                marginFromBottom={height(5)}
+                data={dataSample} />
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    app: {
-        flex: 2,
-        marginHorizontal: "auto",
-        width: "100%",
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
     },
-    row: {
-        flexDirection: "row"
+    imgCardSize: {
+        marginLeft: width(5),
+        height: height(32),
+        width: width(90),
+        borderRadius: 9
     },
-    "3col":  {
-        backgroundColor:  "grey",
-        borderColor:  "#fff",
-        borderWidth:  1,
-        flex:  3,
-        height:  300,
-        alignItems:  "center",
-        justifyContent:  "center",
-    },
-    teaserImage: {
-        width: 50,
-        height: 50,
-    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 40,
+        marginBottom: 10
+    }
 });

@@ -1,18 +1,12 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './reducers/appReducer';
 
-// Reference here all your application reducers
-const reducer = {
-    appReducer: appReducer,
-}
-
-// @ts-ignore
 const store = configureStore({
-    reducer,
+    reducer: appReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
-            serializableCheck: false
-        })
-},);
+            serializableCheck: false,
+        }),
+});
 
 export default store;

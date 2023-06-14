@@ -12,7 +12,7 @@ export default function Navigation() {
     return (
 
         <NavigationContainer>
-            <BottomTabNavigator.Navigator initialRouteName="Home">
+            <BottomTabNavigator.Navigator initialRouteName="Accueil">
                 <BottomTabNavigator.Screen
                     name="Home"
                     component={StackNavigation}
