@@ -1,17 +1,43 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
+import { useDispatch } from "react-redux";
+import {addFavorite, readFavorites , clearStorage } from "../redux/actions/storage";
 
 export default function VoitureDetailScreen({ route }) {
     const { voiture } = route.params;
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
             title: voiture.immat,
+            headerRight: () => (
+                <View style={styles.headerButtonContainer}>
+                    <FontAwesome.Button
+                        name="star"
+                        backgroundColor="#000"
+                        onPress={addToFavorites}
+                        iconStyle={styles.starIcon}
+                    />
+                </View>
+            ),
         });
     }, [navigation, voiture]);
+
+    const addToFavorites = () => {
+        dispatch(addFavorite(voiture));
+    };
+
+    const readFavoritesStorage = () => {
+        dispatch(readFavorites());
+    };
+
+    const clearAllStorage = () => {
+        dispatch(clearStorage());
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.centered}>
@@ -51,6 +77,16 @@ export default function VoitureDetailScreen({ route }) {
                     Retour
                 </FontAwesome.Button>
             </View>
+            <View style={styles.bottomButtonContainer}>
+                <Button
+                    title="Lire les favoris"
+                    onPress={readFavoritesStorage}
+                />
+                <Button
+                    title="Vider le stockage"
+                    onPress={clearAllStorage}
+                />
+            </View>
         </View>
     );
 }
@@ -89,5 +125,15 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: "row",
         justifyContent: "space-around",
+    },
+    headerButtonContainer: {
+        alignItems: "center",
+        marginRight: 10,
+    },
+    starIcon: {
+        marginRight: 0,
+    },
+    bottomButtonContainer: {
+        marginTop: 20,
     },
 });

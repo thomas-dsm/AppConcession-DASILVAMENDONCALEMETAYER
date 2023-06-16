@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         margin: 20,
-        fontFamily: "Arial",
+        // fontFamily: "Arial",
     },
     teaserImage: {
         width: 50,
