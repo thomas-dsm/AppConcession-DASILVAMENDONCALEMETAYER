@@ -39,7 +39,7 @@ export default function MarqueDetailScreen({ route }) {
     };
 
     const handleDelete = () => {
-        dispatch(deleteMarque(marque.id));
+        dispatch(deleteMarque(marque.nom));
         navigation.navigate('ListMarquesScreen');
         Alert.alert('Suppression réussie', 'La marque a été supprimée avec succès.');
     };

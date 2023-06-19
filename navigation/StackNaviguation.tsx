@@ -9,8 +9,8 @@ import MarqueDetailScreen from "../screens/MarqueDetailScreen";
 export default function StackNavigation() {
     const Stack = createStackNavigator();
     return (
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Navigator initialRouteName="Accueil">
+                <Stack.Screen name="Accueil" component={HomeScreen}/>
                 <Stack.Screen name="VoitureDetailScreen" component={VoitureDetailScreen}/>
                 <Stack.Screen name="MarqueDetailScreen" component={MarqueDetailScreen}/>
                 <Stack.Screen name="ListVoituresScreen" component={ListVoituresScreen}/>

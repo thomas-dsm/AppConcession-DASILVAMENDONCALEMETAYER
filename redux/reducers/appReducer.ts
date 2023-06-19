@@ -26,8 +26,7 @@ const appReducer = (state = initialState, action) => {
         case 'DELETE_MARQUE':
             return {
                 ...state,
-                marques: state.marques.filter((marque) => marque.id !== action.payload),
-            };
+                marques: [...state.marques.filter((item) => item.nom != action.payload.nom)]};
         default:
             return state;
     }
