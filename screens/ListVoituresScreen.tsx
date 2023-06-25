@@ -9,6 +9,13 @@ export default function ListVoituresScreen() {
 
     const navigation = useNavigation();
     const VOITURES_LIST = createVoituresList();
+
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            title: 'Liste des voitures',
+        });
+    }, [navigation]);
+
     return (
         <FlatList
             data={VOITURES_LIST}

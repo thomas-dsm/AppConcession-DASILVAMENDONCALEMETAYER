@@ -1,7 +1,7 @@
-import {createMarquesList} from "../../data/stub";
+import {createMarquesList, createVoituresList} from "../../data/stub";
 
 const initialState = {
-    voitures: [],
+    voitures: createVoituresList(),
     favoriteCars: [],
     marques: createMarquesList(),
 }
@@ -27,6 +27,11 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 marques: [...state.marques.filter((item) => item.nom != action.payload.nom)]};
+        case 'UPDATE_FAVORITES':
+            return {
+                ...state,
+                favoriteCars: action.payload,
+            };
         default:
             return state;
     }

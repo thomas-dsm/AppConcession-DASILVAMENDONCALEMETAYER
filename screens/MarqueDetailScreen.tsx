@@ -46,11 +46,11 @@ export default function MarqueDetailScreen({ route }) {
 
     return (
         <View style={styles.container}>
+            <Image style={styles.coverImage} source={marque.image} resizeMode="cover" />
             <View style={styles.centered}>
                 <Text style={styles.title}>Détails de la marque</Text>
             </View>
             <View style={styles.flex_container}>
-                <Image style={styles.teaserImage} source={marque.image} alt={'car-icon'} />
                 <View style={styles.detailsContainer}>
                     {isEditing ? (
                         <>
@@ -131,9 +131,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 20,
     },
-    teaserImage: {
-        width: 100,
-        height: 100,
+    coverImage: {
+        width: '100%',
+        height: 200,
     },
     flex_container: {
         flexDirection: 'row',

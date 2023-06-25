@@ -20,16 +20,16 @@ export const createVoituresList = (): Voiture[] => {
 
 export const createMarquesList = () : Marque[] => {
     const MARQUES_LIST : Marque[] = [
-        new Marque("FIAT", "1899", "Italie", require("../assets/images/default-brand.png")),
-        new Marque("Toyota", "1937", "Japon", require("../assets/images/default-brand.png")),
-        new Marque("Mercedes-Benz", "1926", "Allemagne", require("../assets/images/default-brand.png")),
-        new Marque("Ford", "1903", "États-Unis", require("../assets/images/default-brand.png")),
-        new Marque("Volkswagen", "1937", "Allemagne", require("../assets/images/default-brand.png")),
-        new Marque("BMW", "1916", "Allemagne", require("../assets/images/default-brand.png")),
-        new Marque("Honda", "1948", "Japon", require("../assets/images/default-brand.png")),
-        new Marque("Renault", "1899", "France", require("../assets/images/default-brand.png")),
-        new Marque("Chevrolet", "1911", "États-Unis", require("../assets/images/default-brand.png")),
-        new Marque("Audi", "1909", "Allemagne", require("../assets/images/default-brand.png"))
+        new Marque("FIAT", "1899", "Italie", require("../assets/images/marques/fiat-750x410.jpg")),
+        new Marque("Toyota", "1937", "Japon", require("../assets/images/marques/toyota-750x410.jpg")),
+        new Marque("Mercedes-Benz", "1926", "Allemagne", require("../assets/images/marques/mercedes-750x410.jpg")),
+        new Marque("Ford", "1903", "États-Unis", require("../assets/images/marques/ford-750x410.jpg")),
+        new Marque("Volkswagen", "1937", "Allemagne", require("../assets/images/marques/volkswagen-750x410.jpg")),
+        new Marque("BMW", "1916", "Allemagne", require("../assets/images/marques/bmw-750x410.jpg")),
+        new Marque("Honda", "1948", "Japon", require("../assets/images/marques/honda-750x410.jpg")),
+        new Marque("Renault", "1899", "France", require("../assets/images/marques/renault-750x410.jpg")),
+        new Marque("Chevrolet", "1911", "États-Unis", require("../assets/images/marques/chevrolet-750x410.jpg")),
+        new Marque("Audi", "1909", "Allemagne", require("../assets/images/marques/audi-750x410.jpg")),
     ];
 
     return MARQUES_LIST;

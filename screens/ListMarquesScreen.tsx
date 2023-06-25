@@ -10,6 +10,12 @@ export default function ListMarquesScreen() {
     const navigation = useNavigation();
     const MARQUES_LIST = createMarquesList();
 
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            title: 'Liste des marques',
+        });
+    }, [navigation]);
+
     const renderMarqueItem = ({ item }) => (
         <TouchableOpacity
             onPress={() => navigation.navigate("MarqueDetailScreen", { marque: item })}

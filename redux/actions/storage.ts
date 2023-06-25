@@ -1,25 +1,32 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
+import {ActionTypes} from "../constants";
+
+export const updateFavorites = (favorites) => {
+    return {
+        type: ActionTypes.UPDATE_FAVORITES,
+        payload: favorites,
+    };
+};
 
 export const addFavorite = (voiture) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
         try {
             const storedFavorites = await AsyncStorage.getItem('favorites');
             let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
 
-            // Vérifier si la voiture est déjà présente dans les favoris
             const existingIndex = favorites.findIndex((fav) => fav.id === voiture.id);
 
             if (existingIndex !== -1) {
-                // La voiture est déjà présente dans les favoris, donc on la supprime
                 favorites.splice(existingIndex, 1);
                 Alert.alert('Voiture retirée des favoris');
             } else {
-                // La voiture n'est pas encore dans les favoris, donc on l'ajoute
                 favorites.push(voiture);
                 Alert.alert('Voiture ajoutée aux favoris');
             }
             await AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+
+            dispatch(updateFavorites(favorites)); // Mettre à jour les favoris dans le store Redux
         } catch (error) {
             console.log(error);
             Alert.alert("Erreur", "Une erreur s'est produite lors de la gestion des favoris");

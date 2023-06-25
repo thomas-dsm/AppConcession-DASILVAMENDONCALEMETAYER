@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, Button, TextInput, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, readFavorites, clearStorage } from "../redux/actions/storage";
 
 export default function VoitureDetailScreen({ route }) {
@@ -15,6 +15,9 @@ export default function VoitureDetailScreen({ route }) {
     const [dateImmat, setDateMiseEnCirculation] = useState(voiture.dateImmat);
     const [couleur, setCouleur] = useState(voiture.couleur);
 
+    const favoriteCars = useSelector(state => state.favoriteCars);
+    const isFavorite = favoriteCars.some(car => car.id === voiture.id);
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
             title: voiture.immat,
@@ -24,12 +27,12 @@ export default function VoitureDetailScreen({ route }) {
                         name="star"
                         backgroundColor="#000"
                         onPress={addToFavorites}
-                        iconStyle={styles.starIcon}
+                        iconStyle={isFavorite ? styles.starIconYellow : styles.starIconWhite}
                     />
                 </View>
             ),
         });
-    }, [navigation, voiture]);
+    }, [navigation, voiture, isFavorite]);
 
     const addToFavorites = () => {
         dispatch(addFavorite(voiture));
@@ -201,8 +204,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginRight: 10,
     },
-    starIcon: {
+    starIconYellow: {
         marginRight: 0,
+        color: "yellow",
+    },
+    starIconWhite: {
+        marginRight: 0,
+        color: "white",
     },
     bottomButtonContainer: {
         marginTop: 20,
